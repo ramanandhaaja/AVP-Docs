@@ -1,0 +1,102 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "subnetId": {
+          "defaultValue": "/subscriptions/2342769d-ff80-45d1-8d3c-28e395d61048/resourceGroups/rg-avp-test/providers/Microsoft.Network/virtualNetworks/vn-avp-test/subnets/default",
+          "type": "String"
+      },
+      "containerGroups_seq_name": {
+          "defaultValue": "seq",
+          "type": "String"
+      }
+  },
+  "variables": {},
+  "resources": [
+      {
+          "type": "Microsoft.ContainerInstance/containerGroups",
+          "apiVersion": "2021-03-01",
+          "name": "[parameters('containerGroups_seq_name')]",
+          "location": "australiaeast",
+          "tags": {
+              "docker-single-container": "docker-single-container"
+          },
+          "properties": {
+              "sku": "Standard",
+              "containers": [
+                  {
+                      "name": "[parameters('containerGroups_seq_name')]",
+                      "properties": {
+                          "image": "[concat('datalust/', parameters('containerGroups_seq_name'), ':latest')]",
+                          "ports": [
+                              {
+                                  "protocol": "TCP",
+                                  "port": 80
+                              },
+                              {
+                                  "protocol": "TCP",
+                                  "port": 5341
+                              }
+                          ],
+                          "environmentVariables": [
+                              {
+                                  "name": "SEQ_METASTORE_MSSQL_CONNECTIONSTRING",
+                                  "value": "[concat('Server=tcp:avpdb.database.windows.net,1433;Initial Catalog=', parameters('containerGroups_seq_name'), 'db;Persist Security Info=False;User ID=AVPAdmin;Password=Je11ybean;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30')]"
+                              },
+                              {
+                                  "name": "ACCEPT_EULA",
+                                  "value": "Y"
+                              }
+                          ],
+                          "resources": {
+                              "requests": {
+                                  "memoryInGB": 1,
+                                  "cpu": 1
+                              },
+                              "limits": {
+                                  "memoryInGB": 1,
+                                  "cpu": 1
+                              }
+                          },
+                          "volumeMounts": [
+                              {
+                                  "name": "volume-0",
+                                  "mountPath": "/data"
+                              }
+                          ]
+                      }
+                  }
+              ],
+              "initContainers": [],
+              "restartPolicy": "Never",
+              "ipAddress": {
+                  "ports": [
+                      {
+                          "protocol": "TCP",
+                          "port": 80
+                      },
+                      {
+                          "protocol": "TCP",
+                          "port": 5341
+                      }
+                  ],
+                  "ip": "20.92.152.26",
+                  "type": "Public",
+                  "dnsNameLabel": "[concat('avp', parameters('containerGroups_seq_name'))]"
+              },
+              "osType": "Linux",
+              "volumes": [
+                  {
+                      "name": "volume-0",
+                      "azureFile": {
+                          "shareName": "[concat(parameters('containerGroups_seq_name'), 'data')]",
+                          "readOnly": false,
+                          "storageAccountName": "[concat('avp', parameters('containerGroups_seq_name'), 'data')]",
+                          "storageAccountKey": "xPeABVJCUwS6i9Y0qyBOB/pwXN7x6jLXlE6Zf5agU5jD3r+yA0VV0BPCqAxNZAhCJwR2otKEKMG86lteUzgHGQ=="
+                      }
+                  }
+              ]
+          }
+      }
+  ]
+}

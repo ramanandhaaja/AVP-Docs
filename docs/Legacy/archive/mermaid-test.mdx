@@ -1,0 +1,48 @@
+---
+title: Mermaid Interactive Diagram Test
+---
+
+import Mermaid from '@theme/Mermaid';
+
+# Interactive Mermaid Diagram Test
+
+This page demonstrates an interactive mermaid diagram with zoom functionality.
+
+## Process Flow Example
+
+<div style={{overflow: 'auto', maxWidth: '100%'}}>
+  <Mermaid
+    value={`flowchart TD
+      classDef completed fill:#00cc66,stroke:#333,stroke-width:1px
+      classDef subProcess fill:#e6f7ff,stroke:#333,stroke-width:1px
+      
+      Start([New Valuation Requirement]) --> FSP[File Setup & Configuration]
+      FSP --> DCP[Data Collection Process]
+      DCP --> CRP[Calculation & Reporting]
+      CRP --> PVP[Post-Valuation Process]
+      PVP --> End([Completed Valuation])
+      
+      %% Sub-processes
+      FSP --> FSP1[Create Client]:::subProcess
+      FSP --> FSP2[Create Users]:::subProcess
+      FSP --> FSP3[Create Framework]:::subProcess
+      
+      DCP --> DCP1[Analyze Data]:::subProcess
+      DCP --> DCP2[Field Collection]:::subProcess
+      
+      CRP --> CRP1[Run Calculations]:::subProcess
+      CRP --> CRP2[Generate Reports]:::subProcess
+      
+      PVP --> PVP1[Update Status]:::subProcess
+      PVP --> PVP2[Archive Job]:::subProcess
+      
+      class FSP,DCP,CRP,PVP completed
+    `}
+  />
+</div>
+
+## Instructions
+
+- You can zoom in and out of the diagram using the mouse wheel
+- Pan around by clicking and dragging
+- This is using the built-in Docusaurus Mermaid component with zoom enabled

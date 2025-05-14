@@ -1,0 +1,304 @@
+# 🔗 Business-Technical Component Map
+
+> **⚠️ Important Note:**  
+> This documentation maps business processes to technical components, but the actual source code is maintained in a separate repository and is not included in this documentation repository.
+
+## 🏗️ Overview
+This document maps the key business processes described in the APV documentation to their technical implementations in the codebase. It serves as a guide for understanding how business requirements are realized in the system and can help new developers understand the relationship between functional requirements and technical components.
+
+## 📋 System Context from Legacy Documentation
+
+Asset Valuer Pro was developed to address specific business challenges in valuation processes:
+
+- The need to onboard new valuation staff quickly without extensive training in valuation methodologies, accounting standards, Excel, and local government asset knowledge
+- The desire to leverage APV's intellectual property by making it available to external entities
+- The requirement to maintain data isolation between valuation processes and live ERP/finance systems
+
+Key business drivers from the legacy documentation:
+- Valuations must be isolated from live data during the valuation process (which can take 6+ months)
+- Support for multiple valuation methodologies (Market, Income, and Cost approaches)
+- Generation of financial statement disclosures and asset management outputs
+
+## 📋 Valuation Approaches from Legacy Documentation
+
+Asset Valuer Pro supports three primary valuation approaches as defined in accounting standards:
+
+### 🧮 Market Approach
+**Business Context**: Used when there is an open and active market (e.g., residential properties, vehicles)
+
+**Technical Implementation**:
+- `MarketApproach.cs`
+- `MarketValuationMethod.cs`
+
+**API Endpoints**:
+- `POST /api/asset/applyMarketApproach`
+- `GET /api/reports/GetMarketAnalysisReport`
+
+**UI Components**:
+- `MarketApproachDetail.tsx`
+
+**Related Documentation**: [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md), [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md)
+
+### 🧮 Income Approach
+**Business Context**: Used when value is driven by income-earning potential (e.g., commercial high-rise buildings)
+
+**Technical Implementation**:
+- `IncomeApproach.cs`
+- `IncomeValuationMethod.cs`
+
+**API Endpoints**:
+- `POST /api/asset/applyIncomeApproach`
+- `GET /api/reports/GetIncomeAnalysisReport`
+
+**UI Components**:
+- `IncomeApproachDetail.tsx`
+
+**Related Documentation**: [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md), [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md)
+
+### 🧮 Cost Approach
+**Business Context**: Used where there is no market and assets are used to deliver community benefits (e.g., roads)
+
+**Technical Implementation**:
+- Direct Cost: `DirectCostValuationMethod.cs`, `DirectCostAssetValuationMethod.cs`
+- Apportionment: `ApportionmentCostValuationMethod.cs`
+- Historical Cost: `HistoricalCostValuationMethod.cs`
+
+**API Endpoints**:
+- `POST /api/asset/recalculate`
+- `GET /api/reports/GetGeneralValuationReports`
+
+**UI Components**:
+- `ValuationDetail.tsx`
+- `ValuationEditor.tsx`
+
+**Related Documentation**: [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md), [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md)
+
+## 📋 Data Flow Explanation
+
+Per the legacy documentation, the system operates with the following data flow:
+
+1. An initial asset register and attributes are sourced from the client and imported via Excel
+2. The user analyzes the data and creates an asset hierarchy and assumptions (the valuation framework)
+3. A job is created specifying which asset classes to value and the effective valuation date
+4. If field inspections are needed, data is exported to a mobile app for collection, then re-imported
+5. Once all data is captured, calculations are run to generate valuation results
+6. Reports are generated for client use
+7. After audit sign-off, the job is archived for historical reference
+
+This flow directly maps to the technical components:
+
+| Business Process Step | Technical Components | Documentation Reference |
+|----------------------|---------------------|-------------------------|
+| 1. Initial Import | `ImportController.cs`, `ImportAssetRegisterSpreadsheetCommand.cs`, `AssetFileValidator.cs` | [Import Process](API/ImportController.md), [Field Data Collection Workflow](Workflows/Field_Data_Collection_Workflow.md) |
+| 2. Valuation Framework | `AssetHierarchyController.cs`, `ComponentHierarchyController.cs`, `ValuationProfileController.cs` | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md) |
+| 3. Job Creation | `JobController.cs`, `Job.cs` | [Job Model](Models/Job.md), [JobController](API/JobController.md) |
+| 4. Mobile Data Capture | `ContentController.cs`, `ImportController.cs` (export/import endpoints) | [Mobile Data Collection](Mobile_Data_Collection.md), [Field Data Collection Workflow](Workflows/Field_Data_Collection_Workflow.md) |
+| 5. Calculation | `AssetController.cs` (recalculate endpoint), valuation method implementations | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md), [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md) |
+| 6. Reporting | `ReportsController.cs`, `GetGeneralValuationReportsQuery.cs` | [Reporting Process Workflow](Workflows/Reporting_Process_Workflow.md), [ReportingServices](Services/ReportingServices.md) |
+| 7. Archiving | `JobController.cs` (archive endpoint) | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md) |
+
+## 📋 Visual Business Process Maps
+
+### 📋 Asset Valuation Workflow
+```mermaid
+graph TD
+    subgraph "1. Setup"
+        A1[Create Client/License] --> A2[Create Users/Roles]
+        A2 --> A3[Create Valuation Framework]
+        A3 --> A4[Create Job]
+        A4 --> A5[Register Assets]
+    end
+    
+    subgraph "2. Data Collection"
+        A5 --> B1[Field Data Collection]
+        A5 --> B2[Import Client Data]
+        B1 --> B3[Validate Data]
+        B2 --> B3
+    end
+    
+    subgraph "3. Calculation"
+        B3 --> C1[Apply Valuation Method]
+        C1 --> C2[Run Calculations]
+        C2 --> C3[Review Results]
+    end
+    
+    subgraph "4. Reporting"
+        C3 --> D1[Generate Financial Reports]
+        C3 --> D2[Generate Methodology Reports]
+        C3 --> D3[Generate Executive Summaries]
+        C3 --> D4[Generate Asset Management Reports]
+    end
+```
+
+**Key Documentation References:**
+- Setup Phase: [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-1-client-and-job-setup), [JobController](API/JobController.md)
+- Data Collection: [Field Data Collection Workflow](Workflows/Field_Data_Collection_Workflow.md), [Mobile Data Collection](Mobile_Data_Collection.md)
+- Calculation: [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-5-run-calculations), [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md)
+- Reporting: [Reporting Process Workflow](Workflows/Reporting_Process_Workflow.md), [Report Business Technical Map](Report_Business_Technical_Map.md)
+
+### 📊 Asset Entity Relationships
+```mermaid
+classDiagram
+    Job "1" -- "*" AssetClass: contains
+    AssetClass "1" -- "*" AssetType: contains
+    AssetType "1" -- "*" AssetSubType: contains
+    AssetSubType "1" -- "*" Asset: categorizes
+    Asset "1" -- "*" Component: contains
+    Asset "1" -- "1" AssetValuation: has
+    Component "1" -- "1" ComponentValuation: has
+    ValuationProfile -- Asset: applies to
+    ValuationProfile -- Component: applies to
+```
+
+**Key Documentation References:**
+- Job and Asset Classes: [Job Model](Models/Job.md), [Asset Model](Models/Asset.md)
+- Asset Hierarchy: [Repository Structure](Repository_Structure.md), [Asset Fields Dictionary](Data_Dictionary/Asset_Fields_Dictionary.md)
+- Valuation Models: [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md), [ValuationProfile Model](Models/ValuationProfile.md)
+- Component Structure: [Component Model](Models/Component.md)
+
+### 🔗 Technical Implementation Map
+```mermaid
+graph TD
+    subgraph "Business Process"
+        BP1[Set up File] --> BP2[Collect Data]
+        BP2 --> BP3[Valuation Calculations]
+        BP3 --> BP4[Generate Reports]
+    end
+    
+    subgraph "Controllers"
+        C1[ClientController] -.-> BP1
+        C2[UserController] -.-> BP1
+        C3[AssetHierarchyController] -.-> BP1
+        C4[JobController] -.-> BP1
+        C5[AssetController] -.-> BP1
+        
+        C6[ContentController] -.-> BP2
+        C7[ImportController] -.-> BP2
+        
+        C9[ReportsController] -.-> BP4
+    end
+    
+    subgraph "Services"
+        S1[ImportService] -.-> BP2
+        S2[RevalidateService] -.-> BP2
+        
+        S3[RefreshJobDataService] -.-> BP3
+        S4[ValuationCalculation] -.-> BP3
+    end
+```
+
+**Key Documentation References:**
+- Controllers: [API Controllers Inventory](API/Controllers_Inventory.md), [API Controllers](API/README.md)
+- Services: [Services Inventory](Services/Services_Inventory.md), [Services](Services/README.md)
+- Data Flow: [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md), [Field Data Collection Workflow](Workflows/Field_Data_Collection_Workflow.md)
+
+## 📋 Asset Valuation Process Flow
+
+### 📋 1. Set up a File
+
+| Business Process | Technical Implementation | Description | Documentation Reference |
+|------------------|--------------------------|-------------|------------------------|
+| Create a 'client' and allocate a 'licence type' | ClientController, SubscriptionController | Manages client data and subscription types (Multi, single, 3rd party) | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-1-client-and-job-setup) |
+| Create 'Users' and allocate 'Roles' | UserController, RoleController | Handles user management and role-based access control | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-1-client-and-job-setup) |
+| Create the 'Valuation Framework' | AssetHierarchyController, ValuationProfileController, ValuationProfileRuleController | Sets up the asset hierarchy (AssetClass → AssetType → AssetSubType) and valuation profiles | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-2-valuation-framework) |
+| Create a valuation 'Job' | JobController | Creates and manages valuation jobs, with specific asset classes and effective date | [Job Model](Models/Job.md), [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-1-client-and-job-setup) |
+| Create and register Assets | AssetController, ImportController | Handles asset creation and bulk import from Excel | [Asset Model](Models/Asset.md), [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-3-asset-registration) |
+
+### 📋 2. Collect Key Data
+
+| Business Process | Technical Implementation | Description | Documentation Reference |
+|------------------|--------------------------|-------------|------------------------|
+| Field data collection | ContentController, DocumentController | Manages content and documents uploaded from iPads/mobile devices | [Field Data Collection Workflow](Workflows/Field_Data_Collection_Workflow.md), [Mobile Data Collection](Mobile_Data_Collection.md) |
+| Import data from client systems | ImportController, ImportLogController | Handles data import processes and logs | [ImportController](API/ImportController.md), [Field Data Collection Workflow](Workflows/Field_Data_Collection_Workflow.md#step-3-data-synchronization) |
+| Process and validate data | RevalidateService | Validates imported data against business rules | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#validation-requirements), [Asset Fields Dictionary](Data_Dictionary/Asset_Fields_Dictionary.md#business-rules-and-validations) |
+
+### 🧮 3. Valuation Calculations
+
+| Business Process | Technical Implementation | Description | Documentation Reference |
+|------------------|--------------------------|-------------|------------------------|
+| Apply valuation methodology | Asset.cs, Component.cs (CreateValuation methods) | Core valuation logic for assets and components | [Asset Model](Models/Asset.md), [Component Model](Models/Component.md), [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md) |
+| Run calculations | RefreshJobDataService | Refreshes calculated values for all assets in a job | [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md#step-5-run-calculations) |
+| Cost approach valuation | ApportionmentCostValuationMethod, DirectCostValuationMethod classes | Implements different cost-based valuation approaches | [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md#-direct-cost-valuation-method), [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md#-apportionment-cost-valuation-method) |
+| Market approach valuation | MarketApproach.cs, MarketValuationMethod class | Implements market-based valuation | [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md#-market-approach-valuation-method) |
+| Income approach valuation | IncomeApproach.cs, IncomeValuationMethod class | Implements income-based valuation | [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md#-income-approach-valuation-method) |
+
+### 📄 4. Generate Reports
+
+| Business Process | Technical Implementation | Description | Documentation Reference |
+|------------------|--------------------------|-------------|--------------------------|
+| Financial reporting valuation | GeneralValuationReport | Comprehensive valuation data export in Excel format | [Report Business Technical Map](Report_Business_Technical_Map.md#-financial-reporting-valuation-reports), [Reporting Process Workflow](Workflows/Reporting_Process_Workflow.md) |
+| Valuation methodology documentation | MethodologyReport | Documents valuation approaches and assumptions | [Report Business Technical Map](Report_Business_Technical_Map.md#-documentation-reports), [ReportingServices](Services/ReportingServices.md) |
+| Executive summaries | SummaryReport | Provides graphical and tabular overview for management | [Report Business Technical Map](Report_Business_Technical_Map.md), [ReportsController](API/ReportsController.md) |
+| Disclosures preparation | MovementsReconciliationReport, ChangesReport | Generates financial statement disclosure data | [Report Business Technical Map](Report_Business_Technical_Map.md#-financial-reporting-valuation-reports), [ReportingServices](Services/ReportingServices.md) |
+| Asset management outputs | RenewalCostReport, CostToBringToSatisfactoryReport | Generates asset management planning data | [Report Business Technical Map](Report_Business_Technical_Map.md#-asset-management-reports), [Reporting Process Workflow](Workflows/Reporting_Process_Workflow.md) |
+
+## 📊 Key Business Entities and Their Technical Implementation
+
+### 📊 Asset Hierarchy
+
+| Business Entity | Technical Model | Controller | Description |
+|-----------------|-----------------|------------|-------------|
+| Asset Class | AssetClass.cs | AssetClassController | Top-level asset categorization (e.g., Buildings, Infrastructure) |
+| Asset Type | AssetType.cs | AssetClassController | Second-level categorization within a class (e.g., Roads, Bridges) |
+| Asset Sub-Type | AssetSubType.cs | AssetClassController | Detailed categorization (e.g., Sealed Roads, Unsealed Roads) |
+| Asset | Asset.cs | AssetController | Individual asset with valuation characteristics |
+
+### 📊 Component Hierarchy
+
+| Business Entity | Technical Model | Controller | Description |
+|-----------------|-----------------|------------|-------------|
+| Component Name | ComponentName.cs | ComponentHierarchyController | Top-level component categorization (e.g., Roof, Structure) |
+| Component Type | ComponentType.cs | ComponentHierarchyController | Second-level categorization (e.g., Metal Roof, Tiled Roof) |
+| Component Sub-Type | ComponentSubType.cs | ComponentHierarchyController | Detailed categorization (e.g., Colorbond, Zincalume) |
+| Component | Component.cs | ComponentController | Individual component with specific lifecycle parameters |
+
+### 📊 Valuation Parameters
+
+| Business Entity | Technical Model | Controller | Description |
+|-----------------|-----------------|------------|-------------|
+| Valuation Profiles | ValuationProfile.cs | ValuationProfileController | Defines consumption score to RSP/RUL relationships |
+| Asset Assumptions | AssetAssumptions.cs | AssumptionsController | Stores unit rates and indices for asset types |
+| Component Assumptions | ComponentAssumptions.cs | AssumptionsController | Stores lifecycle parameters for component types |
+| Replacement Costs | AssetReplacementCost.cs, ComponentReplacementCost.cs | AssetReplacementCostController, ComponentReplacementCostController | Detailed replacement cost breakdowns |
+
+### 📊 Valuation Results
+
+| Business Entity | Technical Model | Description |
+|-----------------|-----------------|-------------|
+| Asset Valuation | AssetValuation.cs | Stores calculated valuation results for an asset |
+| Component Valuation | ComponentValuation.cs | Stores calculated valuation results for a component |
+| Replacement Cost Valuation | AssetReplacementCostValuation.cs, ComponentReplacementCostValuation.cs | Stores calculated replacement cost values |
+
+## 🧮 Valuation Approaches and Implementation
+
+### 🧮 Cost Approach
+
+| Business Process | Technical Implementation | Description |
+|------------------|--------------------------|-------------|
+| Apportionment Cost | ApportionmentCostValuationMethod | Values assets by apportioning costs across components |
+| Direct Cost | DirectCostValuationMethod | Values assets directly without component breakdown |
+| Historical Cost | HistoricalCostValuationMethod | Values assets based on historical costs and depreciation |
+
+### 🧮 Market Approach
+
+| Business Process | Technical Implementation | Description |
+|------------------|--------------------------|-------------|
+| Market Value | MarketValuationMethod | Values assets based on market data |
+| Land and Improvements | MarketApproach.cs (ImprovementsOnLand type) | Separates land value from improvements |
+| Item Only | MarketApproach.cs (ItemOnly type) | Values items without land consideration |
+
+### 🧮 Income Approach
+
+| Business Process | Technical Implementation | Description |
+|------------------|--------------------------|-------------|
+| Income Capitalization | IncomeValuationMethod | Values assets based on income streams |
+| Income Streams | IncomeApproachItem | Individual income sources with capitalization factors |
+
+## 📊 Strategic Asset Management
+
+| Business Process | Technical Implementation | Description |
+|------------------|--------------------------|-------------|
+| EasySAM | StrategyController | Lifecycle optimization modeling tool |
+| Projected Renewals | RenewalCostReport | Projects renewal costs over time |
+| Cost to Bring to Satisfactory | CostToBringToSatisfactoryReport | Calculates costs to restore assets to satisfactory condition |
+| Condition Analysis | DistributionByScoreReport | Analyzes asset portfolio by condition |
