@@ -14,7 +14,7 @@
 
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
-const sidebars = {
+ const sidebars = {
   docsSidebar: [
     {
       type: 'category',
@@ -23,11 +23,52 @@ const sidebars = {
       items: [
         'Documentations/intro',
         'Documentations/tech-stack',
-        'Documentations/code-structure',
-        'Documentations/installation',
+        {
+          type: 'category',
+          label: 'Code Structure',
+          collapsed: false,
+          items: [
+            'Documentations/structure/index',
+            'Documentations/structure/web',
+            'Documentations/structure/api-backend',
+            'Documentations/structure/mobile',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Installations',
+          collapsed: false,
+          items: [
+            'Documentations/installation/index',
+            {
+              type: 'category',
+              label: 'Web',
+              collapsed: false,
+              items: [
+                'Documentations/installation/web/index',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'API Backend',
+              collapsed: false,
+              items: [
+                'Documentations/installation/api-backend/index',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Mobile',
+              collapsed: false,
+              items: [
+                'Documentations/installation/mobile/index',
+              ],
+            },
+          ],
+        },
         'Documentations/local-setup',
         'Documentations/testing',
-        'Documentations/production'
+        'Documentations/production',
       ],
     },
     {

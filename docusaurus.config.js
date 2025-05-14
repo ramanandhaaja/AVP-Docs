@@ -76,9 +76,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'AVP Documentations',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'AVP Documentations',
           src: 'img/logo.svg',
         },
         items: [
