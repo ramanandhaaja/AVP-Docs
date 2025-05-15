@@ -1,5 +1,4 @@
 # Tech Stack
-
 This document provides an overview of the technologies used in the Asset Valuer Pro (AVP) application, organized by layer and component.
 
 | Layer         | Technology/Tool                | Notes / Version           |
