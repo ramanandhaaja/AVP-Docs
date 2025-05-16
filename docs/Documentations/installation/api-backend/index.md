@@ -1,8 +1,3 @@
----
-id: avp-installation-guide
-title: AVP Installation Guide
-sidebar_label: AVP Installation
----
 
 # 📘 AVP Application Installation Guide
 
