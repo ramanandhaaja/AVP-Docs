@@ -54,6 +54,7 @@
               collapsed: true,
               items: [
                 'Documentations/installation/api-backend/index',
+                'Documentations/installation/api-backend/restore',
               ],
             },
             {

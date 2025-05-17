@@ -1,5 +1,5 @@
 
-# 📘 AVP Application Installation Guide
+# AVP Application Installation Guide
 
 This guide will help you set up the AVP application on your computer. Please follow each step carefully.
 
