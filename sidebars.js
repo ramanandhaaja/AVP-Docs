@@ -30,7 +30,23 @@
           items: [
             'Documentations/structure/index',
             'Documentations/structure/web',
-            'Documentations/structure/api-backend',
+            {
+              type: 'category',
+              label: 'API Backend Structure',
+              collapsed: true,
+              items: [
+                {
+                  type: 'category',
+                  label: 'Controller',
+                  collapsed: true,
+                  items: [
+                    'Documentations/structure/controller/index',
+                    'Documentations/structure/controller/assetClass',
+                    'Documentations/structure/controller/assetHierarchy',
+                  ],
+                },
+              ],
+            },
             'Documentations/structure/mobile',
           ],
         },
