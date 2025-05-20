@@ -1,4 +1,4 @@
-# Overview Controller
+# Overview
 
 # ApiController (Base Class)
 
@@ -82,3 +82,36 @@ public class AssetController : ApiController
         return await Mediator.Send(query);
     }
 }
+```
+
+In this example:
+- The user asks for asset information.
+- The controller forwards the request using CQRS (specifically, a "Query").
+- MediatR finds the right handler and gets the data.
+- The controller then returns the result to the user.
+
+## Security Considerations
+- All controllers based on ApiController require login/authentication.
+- You can override this if you want to allow public access for specific APIs.
+- No specific user roles are enforced at this level; that can be added in child controllers.
+
+## Summary
+
+| Topic | Description |
+|-------|-------------|
+| **What It Is** | A base class that all API controllers inherit from |
+| **Why It Exists** | Ensures consistent setup, security, and structure across the API system |
+| **Main Features** | Authentication, routing, large upload support, CQRS-based request handling |
+| **Used By** | Every controller in the AVP API system |
+| **Business Benefit** | Promotes maintainability, scalability, and consistency|
+
+## What is CQRS (Brief Overview)
+CQRS stands for Command Query Responsibility Segregation. It’s a way to organize how requests are handled:
+- Commands are requests to change something (like saving or updating data).
+- Queries are requests to get information (like listing products or searching).
+By separating them, the system becomes cleaner and easier to grow.
+
+## File Details
+- Location: /API/Controllers/ApiController.cs
+- Namespace: AVP.API.Controllers
+- Type: abstract class (can’t be used directly—only inherited)
