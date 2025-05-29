@@ -222,7 +222,7 @@ Defined by `ValuationProfile` class.
 
 ## Related Documents
 
-* [Asset Fields Dictionary](Asset_Fields_Dictionary.md)
-* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow.md)
-* [Reporting Process Workflow](../Workflows/Reporting_Process_Workflow.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
+* [Asset Fields Dictionary](Asset_Fields_Dictionary)
+* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow)
+* [Reporting Process Workflow](../Workflows/Reporting_Process_Workflow)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)

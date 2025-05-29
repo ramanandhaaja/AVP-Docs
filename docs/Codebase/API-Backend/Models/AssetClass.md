@@ -106,7 +106,7 @@ Asset classes are frequently referenced in:
 
 ## Related Documentation
 
-* [Asset Model Documentation](Asset.md)
-* [AssetAssumptions Documentation](AssetAssumptions.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow.md)
+* [Asset Model Documentation](Asset)
+* [AssetAssumptions Documentation](AssetAssumptions)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow)

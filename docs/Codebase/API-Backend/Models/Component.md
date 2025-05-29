@@ -150,7 +150,7 @@ This data informs:
 
 ## Related Documentation
 
-* [Asset Model Documentation](Asset.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Component Assumptions](../Models/ComponentAssumptions.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
+* [Asset Model Documentation](Asset)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Component Assumptions](../Models/ComponentAssumptions)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)

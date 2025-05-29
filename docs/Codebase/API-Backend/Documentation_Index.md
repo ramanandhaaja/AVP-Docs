@@ -11,7 +11,7 @@ This index is the **central navigation hub** for AVP technical documentation. It
 ---
 
 ## Getting Started
-- [README](README.md) - Overview of the documentation repository
+- [README](/docs/Codebase/API-Backend/) - Overview of the documentation repository
 - [Business Technical Overview](Business_Technical_Overview.md) - High-level business and technical summary
 - [Technology Stack](Technology_Stack.md) - Frameworks and technologies used
 - [Repository Structure](Repository_Structure.md) - Code organization
@@ -32,12 +32,12 @@ This index is the **central navigation hub** for AVP technical documentation. It
 
 ## Component Documentation
 ### API Controllers
-- [API Controllers Inventory](API/Controllers_Inventory.md) - Comprehensive controller list
-- [AssetController](API/AssetController.md) - Asset management endpoints
-- [ComponentController](API/ComponentController.md) - Component management endpoints
-- [ImportController](API/ImportController.md) - Data import/export endpoints
-- [JobController](API/JobController.md) - Job management endpoints
-- [ReportsController](API/ReportsController.md) - Report generation endpoints
+- [API Controllers Inventory](Controller/ControllersInventory.md) - Comprehensive controller list
+- [AssetController](Controller/AssetController.md) - Asset management endpoints
+- [ComponentController](Controller/ComponentController.md) - Component management endpoints
+- [ImportController](Controller/ImportController.md) - Data import/export endpoints
+- [JobController](Controller/JobController.md) - Job management endpoints
+- [ReportsController](Controller/ReportsController.md) - Report generation endpoints
 
 ### Data Models
 - [Models Inventory](Models/Models_Inventory.md) - All data models overview
@@ -68,13 +68,12 @@ This index is the **central navigation hub** for AVP technical documentation. It
 ---
 
 ## Data Dictionaries
-- [Asset Fields Dictionary](Data_Dictionary/Asset_Fields_Dictionary.md) - Asset data definitions
-- [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md) - Valuation data definitions
+- [Asset Fields Dictionary](DataDictionary/Asset_Fields_Dictionary.md) - Asset data definitions
+- [Valuation Fields Dictionary](DataDictionary/Valuation_Fields_Dictionary.md) - Valuation data definitions
 
 ---
 
 ## Developer Guidelines
-- [Emoji Reference](Emoji_Reference.md) - Guidelines for emoji usage
 - [Version Notes Guidelines](Version_Notes_Guidelines.md) - Version differences documentation standards
 
 ---
@@ -91,10 +90,10 @@ This index is the **central navigation hub** for AVP technical documentation. It
 ### Common Workflows
 | Workflow | Documentation | Related API | Models |
 |----------|---------------|-------------|--------|
-| Create New Asset | [Valuation Process](Workflows/Valuation_Process_Workflow.md) | [AssetController](API/AssetController.md) | [Asset](Models/Asset.md) |
-| Import Asset Register | [Valuation Process](Workflows/Valuation_Process_Workflow.md) | [ImportController](API/ImportController.md) | [Asset](Models/Asset.md) |
-| Run Field Collection | [Field Data Collection](Workflows/Field_Data_Collection_Workflow.md) | [ContentController](API/ContentController.md) | [Asset](Models/Asset.md), [Note](Models/Note.md) |
-| Generate Reports | [Reporting Process](Workflows/Reporting_Process_Workflow.md) | [ReportsController](API/ReportsController.md) | [AssetValuation](Models/AssetValuation.md) |
+| Create New Asset | [Valuation Process](Workflows/Valuation_Process_Workflow.md) | [AssetController](Controller/AssetController.md) | [Asset](Models/Asset.md) |
+| Import Asset Register | [Valuation Process](Workflows/Valuation_Process_Workflow.md) | [ImportController](Controller/ImportController.md) | [Asset](Models/Asset.md) |
+| Run Field Collection | [Field Data Collection](Workflows/Field_Data_Collection_Workflow.md) | [ContentController](Controller/ContentController.md) | [Asset](Models/Asset.md), [Note](Models/Note.md) |
+| Generate Reports | [Reporting Process](Workflows/Reporting_Process_Workflow.md) | [ReportsController](Controller/ReportsController.md) | [AssetValuation](Models/AssetValuation.md) |
 
 ---
 

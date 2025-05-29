@@ -174,7 +174,7 @@ AVP.CLI.exe report renewal-cost --job 123 --years 20 --format xlsx
 
 ## Related Docs
 
-* [General Valuation Report](GeneralValuationReport.md)
-* [Asset Valuation Model](../Models/AssetValuation.md)
-* [Valuation Profiles](Valuation_Fields_Dictionary.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
+* [General Valuation Report](GeneralValuationReport)
+* [Asset Valuation Model](../Models/AssetValuation)
+* [Valuation Profiles](../DataDictionary/Valuation_Fields_Dictionary)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)

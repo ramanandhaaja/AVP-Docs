@@ -154,7 +154,7 @@ When applying assumptions, the following hierarchy is respected:
 
 ## Related Resources
 
-* [Asset Model Documentation](Asset.md)
-* [Asset Fields Dictionary](Asset_Fields_Dictionary.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow.md)
+* [Asset Model Documentation](Asset)
+* [Asset Fields Dictionary](../DataDictionary/Asset_Fields_Dictionary)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow)

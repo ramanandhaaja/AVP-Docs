@@ -202,7 +202,7 @@ Supports:
 
 ## Related Docs
 
-* [Asset Model Documentation](../Models/Asset.md)
-* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
-* [AssetController API Reference](../API/AssetController.md)
+* [Asset Model Documentation](../Models/Asset)
+* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)
+* [AssetController API Reference](../Controller/AssetController)

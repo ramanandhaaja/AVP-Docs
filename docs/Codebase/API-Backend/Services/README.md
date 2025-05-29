@@ -13,12 +13,11 @@ This directory contains documentation for the business logic services that imple
 - [ValuationCalculation](ValuationCalculation.md) – Implements various valuation methodologies
 - [ReportingServices](ReportingServices.md) – Generates reports for financial and asset management purposes
 - [ImportExport](ImportExport.md) – Handles data import and export operations
-- [RefreshJobDataService](RefreshJobData_Corrected.md) – Updates calculated values for assets
-- [RevalidateCommand](RevalidateCommand_Corrected.md) – Applies business rule validation to assets and components
-- [ValuationServices](ValuationServices_Corrected.md) – Core service interface for applying valuation logic
-- [JobOperation](JobOperation_Corrected.md) – Manages job lifecycle operations
+- [RefreshJobDataService](RefreshJobDataService.md) – Updates calculated values for assets
+- [RevalidateCommand](RevalidateService.md) – Applies business rule validation to assets and components
+- [ValuationServices](ValuationServices.md) – Core service interface for applying valuation logic
+- [JobOperation](JobOperation.md) – Manages job lifecycle operations
 
-For a complete list of services, see the [BusinessLogicServicesInventory](BusinessLogicServicesInventory.md).
 
 ## Service Organization
 

@@ -88,7 +88,7 @@ If you're new to the system or unsure which report fits your need:
 
 ## Related Docs
 
-* [Asset Valuation Model](../Models/AssetValuation.md)
-* [Valuation Fields Dictionary](../Dictionaries/Valuation_Fields_Dictionary.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
-* [Valuation Process Overview](../Workflows/Valuation_Process_Workflow.md)
+* [Asset Valuation Model](../Models/AssetValuation)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)
+* [Valuation Process Overview](../Workflows/Valuation_Process_Workflow)

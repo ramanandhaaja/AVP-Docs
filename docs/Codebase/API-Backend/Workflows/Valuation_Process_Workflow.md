@@ -159,8 +159,7 @@ asset.PreviousDepreciationExpense = asset.DepreciationExpense;
 
 ## Related Docs
 
-* [Field Data Collection Workflow](Field_Data_Collection_Workflow.md)
-* [Reporting Workflow](Reporting_Process_Workflow.md)
-* [Valuation Fields Dictionary](../Dictionaries/Valuation_Fields_Dictionary.md)
-* \[Asset & Component Models]\(../Models/Asset.md, ../Models/Component.md)
-* [Reports README](../Reports/README.md)
+* [Field Data Collection Workflow](Field_Data_Collection_Workflow)
+* [Reporting Workflow](Reporting_Process_Workflow)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Reports README](../Reports/)

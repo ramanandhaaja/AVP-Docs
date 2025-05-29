@@ -102,7 +102,7 @@ This layered classification ensures assets can be grouped and managed with incre
 
 ## Related Documentation
 
-* [Asset Class Documentation](AssetClass.md)
-* [Asset SubType Documentation](AssetSubType.md)
-* [Asset Assumptions Documentation](AssetAssumptions.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
+* [Asset Class Documentation](AssetClass)
+* [Asset SubType Documentation](AssetSubType)
+* [Asset Assumptions Documentation](AssetAssumptions)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)

@@ -145,7 +145,7 @@ It is referenced by:
 
 ## Related Documentation
 
-* [Asset Model](Asset.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Job Lifecycle Documentation](../Workflows/Valuation_Process_Workflow.md)
-* [Insurance Assumptions](../Models/Insurance.md)
+* [Asset Model](Asset)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Job Lifecycle Documentation](../Workflows/Valuation_Process_Workflow)
+* [Insurance Assumptions](../Models/Insurance)

@@ -122,7 +122,7 @@ Component subtypes enable more detailed reporting and planning by:
 
 ## Related Documentation
 
-* [Component Type Documentation](ComponentType.md)
-* [Component Assumptions Documentation](ComponentAssumptions.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
+* [Component Type Documentation](ComponentType)
+* [Component Assumptions Documentation](ComponentAssumptions)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)

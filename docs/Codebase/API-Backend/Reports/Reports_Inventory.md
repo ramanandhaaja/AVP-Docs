@@ -95,4 +95,4 @@ Based on business value and system complexity, the following reports should be p
 * [Methodology Report](MethodologyReport.md)
 * [Insurance Valuation Report](InsuranceValuationReport.md)
 * [Renewal Cost Report](RenewalCostReport.md)
-* [Valuation Fields Dictionary](../Dictionaries/Valuation_Fields_Dictionary.md)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary.md)

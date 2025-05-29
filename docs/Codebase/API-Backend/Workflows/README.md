@@ -75,7 +75,7 @@ These workflows support:
 
 ## Related Documentation
 
-* [Valuation Fields Dictionary](../Dictionaries/Valuation_Fields_Dictionary.md)
-* [Asset Valuation Model](../Models/AssetValuation.md)
-* [Reports Documentation](../Reports/README.md)
-* [Import/Export Logic](../Models/ImportExport.md)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Asset Valuation Model](../Models/AssetValuation)
+* [Reports Documentation](../Reports/README)
+* [Import/Export Logic](../Models/ImportExport)
