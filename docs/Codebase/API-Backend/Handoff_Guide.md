@@ -128,11 +128,11 @@ See [Reporting Process Workflow](Workflows/Reporting_Process_Workflow.md)
 
 | Controller | Purpose | Link |
 |------------|---------|------|
-| AssetController | Asset ops | [AssetController](API/AssetController.md) |
-| ComponentController | Component ops | [ComponentController](API/ComponentController.md) |
-| ImportController | Data ops | [ImportController](API/ImportController.md) |
-| JobController | Job ops | [JobController](API/JobController.md) |
-| ReportsController | Report ops | [ReportsController](API/ReportsController.md) |
+| AssetController | Asset ops | [AssetController](Controller/AssetController.md) |
+| ComponentController | Component ops | [ComponentController](Controller/ComponentController.md) |
+| ImportController | Data ops | [ImportController](Controller/ImportController.md) |
+| JobController | Job ops | [JobController](Controller/JobController.md) |
+| ReportsController | Report ops | [ReportsController](Controller/ReportsController.md) |
 
 ### Key Services
 
@@ -202,7 +202,7 @@ See [Reporting Workflow](Workflows/Reporting_Process_Workflow.md)
 3. Update test
 4. Validate results
 
-See [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md)
+See [Valuation Fields Dictionary](DataDictionary/Valuation_Fields_Dictionary.md)
 
 ## Known Limitations
 

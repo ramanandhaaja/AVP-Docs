@@ -162,5 +162,5 @@ classDiagram
 * [Valuation Process Workflow](Workflows/Valuation_Process_Workflow.md)
 * [Reporting Process Workflow](Workflows/Reporting_Process_Workflow.md)
 * [Field Data Collection Workflow](Workflows/Field_Data_Collection_Workflow.md)
-* [Valuation Fields Dictionary](Data_Dictionary/Valuation_Fields_Dictionary.md)
+* [Valuation Fields Dictionary](DataDictionary/Valuation_Fields_Dictionary.md)
 * [Reports Inventory](Reports/Reports_Inventory.md)

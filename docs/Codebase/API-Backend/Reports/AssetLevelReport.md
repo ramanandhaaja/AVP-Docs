@@ -129,7 +129,7 @@ This report supports:
 
 ## Related Documentation
 
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Asset Model](Asset.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
-* [Valuation Process Overview](../Workflows/Valuation_Process_Workflow.md)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Asset Model](../Models/Asset)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)
+* [Valuation Process Overview](../Workflows/Valuation_Process_Workflow)

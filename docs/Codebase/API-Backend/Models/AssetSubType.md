@@ -118,7 +118,7 @@ This structure allows targeted rule application and precise report groupings.
 
 ## Related Documentation
 
-* [Asset Type Documentation](AssetType.md)
-* [Asset Assumptions Documentation](AssetAssumptions.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Component Templates & Rules](../Workflows/Field_Data_Collection_Workflow.md)
+* [Asset Type Documentation](AssetType)
+* [Asset Assumptions Documentation](AssetAssumptions)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Component Templates & Rules](../Workflows/Field_Data_Collection_Workflow)

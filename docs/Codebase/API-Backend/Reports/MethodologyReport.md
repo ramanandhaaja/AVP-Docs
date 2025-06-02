@@ -124,8 +124,7 @@ GET /api/reports/methodology?jobId=456&assetClass=Buildings
 
 ## Related Documentation
 
-* [Asset Assumptions](AssetAssumptions.md)
-* [Component Assumptions](ComponentAssumptions.md)
-* [Valuation Profiles](Valuation_Fields_Dictionary.md)
-* [Insurance Assumptions](Insurance.md)
-* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow.md)
+* [Asset Assumptions](../Models/AssetAssumptions)
+* [Component Assumptions](../Models/ComponentAssumptions)
+* [Valuation Profiles](../DataDictionary/Valuation_Fields_Dictionary)
+* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow)

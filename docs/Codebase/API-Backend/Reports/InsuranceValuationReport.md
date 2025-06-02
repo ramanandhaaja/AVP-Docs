@@ -186,7 +186,7 @@ AVP.CLI.exe report insurance-valuation --job 123 --format xlsx
 
 ## Related Docs
 
-* [General Valuation Report](GeneralValuationReport.md)
-* [Component Model](Component.md)
-* [Insurance Assumptions](../Models/Insurance.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
+* [General Valuation Report](GeneralValuationReport)
+* [Component Model](../Models/Component)
+* [Insurance Assumptions](../Models/Insurance)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)

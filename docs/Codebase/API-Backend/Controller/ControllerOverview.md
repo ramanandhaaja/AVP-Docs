@@ -14,13 +14,13 @@ This directory contains documentation for the API controllers that form the back
 
 ## Available Controller Documentation
 
-- [AssetController](AssetController.md) - Manages core asset operations
-- [JobController](JobController.md) - Handles valuation job management
-- [ReportsController](ReportsController.md) - Generates various reports
-- [ImportController](ImportController.md) - Manages data import and export
+- [AssetController](AssetController) - Manages core asset operations
+- [JobController](JobController) - Handles valuation job management
+- [ReportsController](ReportsController) - Generates various reports
+- [ImportController](ImportController) - Manages data import and export
 - And many more...
 
-For a complete list of controllers, see the [Controllers Inventory](Controllers_Inventory.md).
+For a complete list of controllers, see the [Controllers Inventory](ControllersInventory).
 
 ## Controller Organization
 

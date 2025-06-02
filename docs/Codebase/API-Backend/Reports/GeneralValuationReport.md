@@ -134,7 +134,7 @@ The **General Valuation Report** provides a unified, multi-dimensional valuation
 
 ## Related Documentation
 
-* [Asset Level Report](AssetLevelReport.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Asset Model](Asset.md)
-* [Income & Market Valuation Workflows](../Workflows/Valuation_Process_Workflow.md)
+* [Asset Level Report](AssetLevelReport)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Asset Model](../Models/Asset)
+* [Income & Market Valuation Workflows](../Workflows/Valuation_Process_Workflow)

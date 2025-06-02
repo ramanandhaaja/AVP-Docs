@@ -193,8 +193,8 @@ This workflow supports:
 
 ## Related Docs
 
-* [Valuation Process Workflow](Valuation_Process_Workflow.md)
-* [Reports README](../Reports/README.md)
-* [Field Data Collection](Field_Data_Collection_Workflow.md)
-* [Valuation Fields Dictionary](../Dictionaries/Valuation_Fields_Dictionary.md)
-* [ReportsController API](../API/ReportsController.md)
+* [Valuation Process Workflow](Valuation_Process_Workflow)
+* [Reports README](../Reports/README)
+* [Field Data Collection](Field_Data_Collection_Workflow)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [ReportsController API](../Controller/ReportsController)

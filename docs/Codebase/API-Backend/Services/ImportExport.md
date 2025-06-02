@@ -1,4 +1,4 @@
-# Enhanced Import/Export Documentation
+# Import/Export Documentation
 
 ## Overview
 
@@ -166,7 +166,7 @@ Used across controllers like:
 
 ## Related Docs
 
-* [Asset Model](Asset.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
-* [AssetAssumptions](AssetAssumptions.md)
+* [Asset Model](../Models/Asset)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)
+* [AssetAssumptions](../Models/AssetAssumptions)

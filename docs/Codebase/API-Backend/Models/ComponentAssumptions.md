@@ -139,7 +139,7 @@ Where:
 
 ## Related Documentation
 
-* [Component Model](Component.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Asset Assumptions](AssetAssumptions.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
+* [Component Model](Component)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Asset Assumptions](AssetAssumptions)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)

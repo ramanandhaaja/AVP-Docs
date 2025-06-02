@@ -131,8 +131,8 @@ Templates support:
 
 ## Related Docs
 
-* [General Valuation Report](GeneralValuationReport.md)
-* [Asset Valuation Model](../Models/AssetValuation.md)
-* [Valuation Fields Dictionary](../Dictionaries/Valuation_Fields_Dictionary.md)
-* [Methodology Report](MethodologyReport.md)
-* [Reports Inventory](Reports_Inventory.md)
+* [General Valuation Report](GeneralValuationReport)
+* [Asset Valuation Model](../Models/AssetValuation)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Methodology Report](MethodologyReport)
+* [Reports Inventory](Reports_Inventory)

@@ -178,8 +178,8 @@ flowchart TD
 
 ## Related Resources
 
-* [Valuation Process Workflow](Valuation_Process_Workflow.md)
-* [Asset Model](../Models/Asset.md)
-* [Valuation Fields Dictionary](../Dictionaries/Valuation_Fields_Dictionary.md)
-* [Import/Export Services](../Models/ImportExport.md)
-* [Content Controller API](../API/ContentController.md)
+* [Valuation Process Workflow](Valuation_Process_Workflow)
+* [Asset Model](../Models/Asset)
+* [Valuation Fields Dictionary](../DataDictionary/Valuation_Fields_Dictionary)
+* [Import/Export Services](../Models/ImportExport)
+* [Content Controller API](../Controller/ContentController)

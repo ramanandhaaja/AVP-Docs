@@ -135,7 +135,7 @@ Recent enhancements include:
 
 ## Related Documentation
 
-* [Asset Fields Dictionary](Asset_Fields_Dictionary.md)
-* [Valuation Fields Dictionary](Valuation_Fields_Dictionary.md)
-* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow.md)
-* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow.md)
+* [Asset Fields Dictionary](Asset)
+* [Valuation Fields Dictionary](ValuationClass)
+* [Valuation Process Workflow](../Workflows/Valuation_Process_Workflow)
+* [Field Data Collection Workflow](../Workflows/Field_Data_Collection_Workflow)
