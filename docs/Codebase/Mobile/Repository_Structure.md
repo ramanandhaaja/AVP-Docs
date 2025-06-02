@@ -1,5 +1,5 @@
 
-# API Backend Structure
+# Code Structure & Workflow
 
 ## Overview
 
@@ -71,13 +71,57 @@ Located in `API/Web/`, structured as follows:
 
 ## iOS Capture Application
 
-A mobile app built using React Native with Expo:
+A mobile app built using React Native with Expo, structured as follows:
+
+### Main Structure
 
 - **App.tsx** – App entry point
-- **src/components/** – UI elements
-- **src/screens/** – View-level screens
-- **src/services/** – API integration and device utilities
-- **src/utils/** – Helper functions
+- **app.config.ts** – Environment configuration
+
+### Source Code Organization (`src/`)
+
+- **src/components/** – Reusable UI components
+  - Form controls (e.g., `ControlledInput.tsx`, `ControlledDropdown.tsx`)
+  - Map components (e.g., `MapMarker.tsx`, `ClusterMarker.tsx`)
+  - Data display components (e.g., `AssetSearchTable.tsx`)
+
+- **src/context/** – React Context providers for state management
+  - `AuthContext.tsx` – Authentication state
+  - `JobContext.tsx` – Job management state
+  - `AssetSearchContext.tsx` – Asset search functionality
+  - `InspectionTypeContext.tsx` – Inspection configuration
+  - `InspectorContext.tsx` – Inspector information
+
+- **src/data/** – Static data and configurations
+  - `MaintenancePlanHierarchy.ts` – Maintenance plan structure
+
+- **src/entities/** – TypeScript interfaces and data models
+  - Asset-related models (e.g., `Asset.ts`, `Component.ts`)
+  - Valuation models (e.g., `IncomeApproach.ts`, `MarketApproach.ts`)
+  - Job and system models (e.g., `Job.ts`, `Status.ts`)
+
+- **src/hooks/** – Custom React hooks
+  - `Api.tsx` – API integration hooks
+
+- **src/pages/** – Main application screens
+  - `JobList.tsx` – Job listing and selection
+  - `ManageJobs.tsx` – Job management
+  - `AssetSearch.tsx` – Asset search functionality
+  - `AssetEdit.tsx` – Asset editing interface
+  - `AssetSearchInfrastructure.tsx` – Infrastructure-specific search
+
+- **src/styles/** – Styling configurations
+  - Screen-specific styles (e.g., `AssetEditStyleSheet.ts`)
+  - Global colors and themes (e.g., `Colors.ts`)
+
+### UI Components
+
+The application includes various modal components and utility views:
+
+- Asset management modals (e.g., `ImageModal.tsx`, `NoteModal.tsx`)
+- Confirmation dialogs (e.g., `DeleteModal.tsx`, `SaveWithErrorsModal.tsx`)
+- Navigation components (e.g., `SideDrawer.tsx`)
+- Data entry forms (e.g., `AssetReplacementCostEdit.tsx`)
 
 ## Data Flow
 
@@ -104,6 +148,12 @@ A mobile app built using React Native with Expo:
 
 - `App.tsx` – Main app entry
 - `app.config.ts` – Environment configuration
+- `src/pages/AssetEdit.tsx` – Asset data capture
+- `src/pages/AssetSearch.tsx` – Asset search functionality
+- `src/pages/AssetSearchInfrastructure.tsx` – Infrastructure-specific search
+- `src/pages/JobList.tsx` – Job management entry point
+- `src/pages/ManageJobs.tsx` – Job management
+- `src/context/AuthContext.tsx` – Authentication management
 
 ## Dependency Structure
 
