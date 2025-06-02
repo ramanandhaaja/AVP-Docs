@@ -177,6 +177,10 @@
                   type: 'doc',
                   id: 'Codebase/Mobile/Repository_Structure',
                 },
+                {
+                  type: 'doc',
+                  id: 'Codebase/Mobile/Technology_Stack',
+                },
           ],
         },
 
