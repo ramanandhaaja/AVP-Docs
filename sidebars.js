@@ -100,16 +100,6 @@
                 },
                 {
                   type: 'doc',
-                  id: 'Codebase/API-Backend/Documentation_Enhancement_Plan',
-                  label: 'Documentation Enhancement Plan',
-                },
-                {
-                  type: 'doc',
-                  id: 'Codebase/API-Backend/Version_Notes_Guidelines',
-                  label: 'Version Notes Guidelines',
-                },
-                {
-                  type: 'doc',
                   id: 'Codebase/API-Backend/Handoff_Guide',
                   label: 'AVP Handoff Guide',
                 },
